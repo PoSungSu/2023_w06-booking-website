@@ -1,0 +1,7 @@
+//文字斷行設計
+.text-truncate {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}

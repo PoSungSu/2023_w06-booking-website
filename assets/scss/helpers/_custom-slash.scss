@@ -1,0 +1,8 @@
+.slash{
+    width: 50px;
+    transform: rotate(120deg);
+    height: 51.02%;
+    @include media-breakpoint-up(lg) {
+        width: 100px;
+    }
+}

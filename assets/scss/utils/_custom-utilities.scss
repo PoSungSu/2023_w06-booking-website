@@ -1,0 +1,67 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    "background-size": (
+        property: background-size,
+        class: bg-s,
+        values: (
+            cover: cover,
+            contain:contain,
+            50:50%
+        )
+    ),
+    "background-position": (
+        property: background-position,
+        responsive: true,
+        class: bg-p,
+        values: (
+          center: center center,
+        )
+    ),
+    "background-repeat": (
+      property: background-repeat,
+      class: bg-r,
+      values:(
+        no: no-repeat,
+        x: repeat-x,
+        y: repeat-y
+      )
+    ),
+    // Make an existing utility responsive
+    "font-size": map-merge(
+      map-get($utilities, "font-size"),
+      ( responsive: true ),
+    ),
+    "border-bottom": map-merge(
+      map-get($utilities, "border-bottom"),
+      ( responsive: true ),
+    ),
+    "border-width": map-merge(
+      map-get($utilities, "border-width"),
+      ( responsive: true ),
+    ),
+    "position": map-merge(
+      map-get($utilities, "position"),
+      ( responsive: true ),
+    ),
+    "line-height": map-merge(
+      map-get($utilities, "line-height"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "line-height"), "values"),
+          (normal: $line-height-normal),
+        ),
+      ),
+    ),
+    "text-align": map-merge(
+      map-get($utilities, "text-align"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "text-align"), "values"),
+          (justify: justify),
+        )
+      )
+    )
+
+  )
+);

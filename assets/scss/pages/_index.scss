@@ -1,0 +1,95 @@
+// .container div:not(:last-child) {
+//   margin-bottom: 32px;
+// }
+.slide {
+  &-bg {
+    height: 350px;
+    background-image: url("../images/event/13.jpg");
+    // background-repeat: no-repeat;
+  }
+  &-date {
+    width: 113px;
+  }
+}
+.cate {
+  &-box {
+    aspect-ratio: 1 / 1;  //可以有width和heigh 1:1
+  }
+  &-img {
+    width: 37.5%;
+  }
+}
+
+.sparkler {
+  width: 24px;
+}
+.card {
+  &-imgBox {
+    height: 210px;    
+  }
+}
+//線上活動
+.online {
+  &-imgBox {
+    height: 158px;
+    object-position: 50% 31%;
+  }
+}
+.album {
+  &-rotate {
+    &:nth-child(even) {
+      transform: rotate(2deg);
+    }
+    &:nth-child(3n) {
+      transform: rotate(-2deg);
+    }
+    &-tag {
+      transform: rotate(-4deg);
+    }
+  }
+  &-tag {
+    width: 96px;
+    height: 39px;
+  }
+  &-imgBox {
+    // width: 267px;
+    height: 267px;
+  }
+  h4 {
+    line-height: normal;
+  }
+}
+// @include media-breakpoint-up(md) {
+//   .cate {
+//     &-box {
+//       min-height: 226px;
+//     }
+//   }
+// }
+
+@include media-breakpoint-up(lg) {
+  // .slide {
+  //     &-bg {
+  //         height: 518px;
+  //     }
+  // }
+  .cate {
+    &-box {
+      height: 196px; 
+    }
+    &-img {
+      width: 80px;
+    }
+  }
+  .card {
+    &-imgBox {
+      height: 255px;
+    }
+  }
+  .online {
+    &-imgBox {
+      height: 317px;
+      object-position: 50% 33%;
+    }
+  }
+}

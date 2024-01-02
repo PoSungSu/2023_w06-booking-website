@@ -1,0 +1,19 @@
+.tag {
+    font-size: 14px;
+    &::before {
+        content: "";
+        position: absolute;
+        transform: translateY(-52%);
+        left: -1px;
+        top: 50%;
+        background: $primary;
+        width: 4px;
+        height: calc(100% + 2px);
+        @include media-breakpoint-up (lg) {
+            transform: translateY(-50%);
+        }
+    }
+    &:hover::before {
+        background: $secondary;
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>logi</title>
+  </head>
+  <body>
+    <%- include('./layout/header'); -%>
+
+    <div class="container">
+        <div class="row row-cols-1 justify-content-center mb-4">
+            <div class="col col-lg-4 mt-6">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="../assets/images/sparkler.png" class="img-fluid mb-4" alt="sparkler" style="width: 32px;">
+                    <p class="fs-6 fw-bold">會員登入</p>
+                </div>
+            </div>
+        </div>
+        <form class="row row-cols-1 g-4 flex-column flex-nowrap align-items-center mb-66 needs-validation" action="./index.html" novalidate>
+            <div class="col col-lg-4 noto-tc-serif">
+                <label for="inputAccount" class="form-label mb-2">帳號</label>
+                <input type="text" class="form-control fs-5" placeholder="請輸入帳號" name="inputAccount" id="inputAccount" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please choose a username.</div>
+            </div>
+            <div class="col col-lg-4 noto-tc-serif">
+                <label for="inputPw" class="form-label mb-2">密碼</label>
+                <input type="password" class="form-control fs-5" placeholder="請輸入密碼" name="inputPw" id="inputPw" pattern="[a-z0-9]" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please choose a username.</div>
+            </div>
+            <div class="col col-lg-4 mt-lg-8">
+                <button type="submit" class="btn btn-primary fs-18px fs-lg-5 fw-bold w-100 py-4 py-lg-2">登入
+                <i class="icofont-double-right ms-1"></i>
+                </button>
+            </div>
+            </form>
+    </div>
+
+    <%- include('./layout/footer'); -%>
+
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

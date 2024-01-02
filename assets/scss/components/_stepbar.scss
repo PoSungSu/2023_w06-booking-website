@@ -1,0 +1,183 @@
+$size: 1rem;
+$side-length: $size *2;
+
+//正方形
+@mixin basic-square($num) {
+    width: map-get($map: $spacers, $key: $num);
+    height: map-get($map: $spacers, $key: $num);
+}
+
+.step-wizard {
+    counter-reset: count;    //自動計數
+    &-list {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 10;
+    }
+    &-item {
+        flex-grow: 1;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: map-get($map: $spacers, $key: 1);
+        position: relative;
+        @include media-breakpoint-up(lg) {
+            gap: map-get($map: $spacers, $key: 2);
+        }
+
+        & .progress-count {
+            @include basic-square(8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // border: 1px solid $primary;
+            z-index: 10;
+            color: $secondary;
+            @include media-breakpoint-up(lg) {
+                @include basic-square(12)
+            }
+
+            //after畫出方匡
+            &::after {
+                content: "";
+                @include basic-square(8);
+                background-color: $primary;
+                border: 1px solid $primary;
+                position: absolute;
+                z-index: -10;
+                @include media-breakpoint-up(lg) {
+                    @include basic-square(12)
+                }
+            }
+
+            //before 控制文字
+            &::before {
+                content: counter(count);
+                counter-increment: count;     //+1的增量
+                visibility: hidden;
+                position: absolute;
+                @include media-breakpoint-up(lg) {
+                    font-size: map-get($map: $font-sizes, $key: 5)
+                }
+            }
+
+        }
+        & .icofont-verification-check {
+            // @include basic-square(4);
+            @include media-breakpoint-up(lg) {
+                // @include basic-square(5);
+                font-size: 20px;
+            }
+        }
+    }
+}
+//畫出線
+.step-wizard-item + .step-wizard-item::after {
+    content: "";
+    position: absolute;
+    top: calc( $side-length * 0.5);
+    left: 0;
+    background-color: $primary;
+    width: 100%;
+    height: 1px;
+    transform: translateX(-50%);
+    z-index: -10;
+}
+
+//狀態
+.step-wizard-item.active {
+    .progress-count::before {
+        visibility: visible;
+    }
+    ~ .step-wizard-item .progress-count {
+        &::before {
+            visibility: visible;
+            color: $primary;
+        }
+        &::after {
+            background-color: #F3F1E5;            
+        }
+    }
+    ~ .step-wizard-item .icofont-verification-check,
+    .icofont-verification-check {
+        display: none;
+    }
+    ~ .step-wizard-item .progress-label {
+        opacity: 0.5;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+// .stepbar {
+//     $size: 1rem;
+//     counter-reset: num;    //自動計數
+
+//     display: flex;
+//     justify-content: space-between;
+//     margin: 0px;
+//     padding-right: 16px;
+//     padding-left: 16px;
+    
+//     &-item {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         flex-grow: 1;
+//         position: relative;
+//         &::before {
+//             content: counter(num);      //增加文字
+//             counter-increment: num;     //+1的增量
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             width: $size *2;
+//             height: $size *2;
+//             border: 1px solid $primary;
+//             color: $secondary;
+//             background-color: $primary;
+
+//         }
+//         &::after {
+//             content: " ";
+//             position: absolute;
+//             width: 100%;
+//             // height: 1px;
+//             border: 1px solid $primary;
+//             // background-color: $primary;
+//             top: 50%;
+//             left: -50%;
+//             z-index: -1;
+//         }
+//         &:first-child:after {
+//             content: none;
+//         }
+//         @include media-breakpoint-up (lg) {
+//             font-size: $size *1.25;
+//             width: $size *3;
+//             height: $size *3;
+//         }
+//     }
+
+//     &-inner {
+
+//     }
+
+// }
+
+// //狀態
+// .stepbar-item::before.active ~ .stepbar-item {
+//     color: $primary;
+//     background-color: unset;    //未設定
+// }

@@ -1,0 +1,10 @@
+.info {
+    background-color: #EBEAE8;
+}
+.ticket {
+    @include media-breakpoint-up(lg) {
+        &-btn::before {
+            content: "立即";
+        }
+    }
+}

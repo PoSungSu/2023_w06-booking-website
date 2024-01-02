@@ -1,0 +1,30 @@
+.img-logo {
+    width: 40px;
+}
+.icofont-search-1 {
+    max-width: 15px;
+    height: auto;
+}
+.form-search {
+    max-width: 207px;
+    max-height: 39px;
+}
+.nav {
+    &-link.active:hover {
+        color: #9C9E18;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .img-logo {
+        width: 53px;
+    }
+    .icofont-search-1 {
+        max-width: 19px;
+        height: auto;
+    }
+    .form-search {
+        max-width: 335px;
+        max-height: 55px;
+    }
+}
